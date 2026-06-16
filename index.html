@@ -4,34 +4,422 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JFSC0TVXHC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JFSC0TVXHC');
+</script>
 </head>
 <body>
-<x-dc>
 <helmet>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     a { cursor: pointer; text-decoration: none; }
   </style>
+  <style>
+    /* ─── RESPONSIVE STRATAGEM ────────────────────────────── */
+
+    /* Hamburger toggle — hidden on desktop */
+    #nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 200;
+      position: relative;
+      flex-shrink: 0;
+    }
+    #nav-toggle span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #0d1f3c;
+      border-radius: 1px;
+    }
+    #nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 140;
+      background: rgba(0,0,0,0.4);
+    }
+
+    /* ── TABLET (769px – 1024px) ──────────────────────────── */
+    @media (max-width: 1024px) {
+      #main-nav {
+        padding: 0 32px !important;
+      }
+      #nav-logo > div:last-child {
+        display: none !important;
+      }
+      #nav-links {
+        gap: 20px !important;
+      }
+      #nav-links a {
+        font-size: 16px !important;
+      }
+      #nav-links a:last-child {
+        padding: 10px 20px !important;
+      }
+      #hero-section {
+        padding: 60px 32px !important;
+        gap: 40px !important;
+      }
+      #hero-section h1 {
+        font-size: 48px !important;
+      }
+      #methodology-strip {
+        padding: 20px 32px !important;
+        overflow-x: auto !important;
+      }
+      #faculty > div:first-child {
+        padding: 56px 32px !important;
+      }
+      #corporate {
+        padding: 56px 32px !important;
+      }
+      #before-after-section {
+        padding: 72px 32px !important;
+      }
+      #how-it-works-section,
+      #simulations,
+      #ai-diff-section,
+      #outcomes-section {
+        padding-left: 32px !important;
+        padding-right: 32px !important;
+      }
+      #pricing,
+      #founding,
+      #demo {
+        padding-left: 32px !important;
+        padding-right: 32px !important;
+      }
+      #founding > div {
+        gap: 56px !important;
+      }
+      #demo > div {
+        gap: 56px !important;
+      }
+      #footer-main {
+        padding-left: 32px !important;
+        padding-right: 32px !important;
+      }
+      #footer-main > div > div:first-child {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 40px !important;
+      }
+    }
+
+    /* ── MOBILE (≤768px) ──────────────────────────────────── */
+    @media (max-width: 768px) {
+
+      /* NAV */
+      #main-nav {
+        padding: 0 20px !important;
+        height: 64px !important;
+      }
+      #nav-logo > div:first-child {
+        font-size: 24px !important;
+      }
+      #nav-toggle {
+        display: flex !important;
+      }
+      #nav-links {
+        display: none !important;
+        position: fixed !important;
+        inset: 0 !important;
+        background: white !important;
+        z-index: 150 !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 36px !important;
+        padding: 80px 40px 60px !important;
+        height: auto !important;
+      }
+      #nav-links.nav-open {
+        display: flex !important;
+      }
+      #nav-links a {
+        font-size: 20px !important;
+        opacity: 1 !important;
+        color: #0d1f3c !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.02em !important;
+      }
+      #nav-links a:last-child {
+        padding: 14px 40px !important;
+        width: 240px !important;
+        text-align: center !important;
+        font-size: 17px !important;
+        border-radius: 2px !important;
+      }
+
+      /* HERO */
+      #hero-section {
+        padding: 48px 20px !important;
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+        min-height: auto !important;
+      }
+      #hero-section h1 {
+        font-size: 38px !important;
+        letter-spacing: -0.02em !important;
+      }
+      #hero-section [style*="gap:32px;padding-top:28px"] {
+        gap: 16px !important;
+        flex-wrap: wrap !important;
+      }
+
+      /* METHODOLOGY STRIP */
+      #methodology-strip {
+        padding: 20px 20px !important;
+        overflow-x: hidden !important;
+      }
+      #methodology-strip > div {
+        flex-direction: column !important;
+        gap: 16px !important;
+        align-items: flex-start !important;
+      }
+      #methodology-strip > div > div:nth-child(2) {
+        display: none !important;
+      }
+      #methodology-strip > div > div:last-child {
+        flex-wrap: wrap !important;
+        gap: 8px 0 !important;
+        flex-direction: column !important;
+      }
+      #methodology-strip > div > div:last-child > div {
+        border-right: none !important;
+        padding-right: 0 !important;
+      }
+      #methodology-strip * {
+        white-space: normal !important;
+      }
+
+      /* WHO IT'S FOR */
+      #faculty {
+        grid-template-columns: 1fr !important;
+        min-height: auto !important;
+      }
+      #faculty > div:first-child {
+        padding: 48px 20px !important;
+      }
+      #faculty > div:first-child h2 {
+        font-size: 26px !important;
+      }
+      #corporate {
+        padding: 48px 20px !important;
+      }
+      #corporate h2 {
+        font-size: 26px !important;
+      }
+
+      /* BEFORE / AFTER */
+      #before-after-section {
+        padding: 56px 20px !important;
+      }
+      #before-after-section h2 {
+        font-size: 28px !important;
+        max-width: 100% !important;
+      }
+      #before-after-section [style*="grid-template-columns:1fr 64px 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+      #before-after-section [style*="grid-template-columns:1fr 64px 1fr"] > div:nth-child(2) {
+        display: none !important;
+      }
+      #before-after-section [style*="margin-top:56px"] {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 28px 20px !important;
+        gap: 24px !important;
+      }
+      #before-after-section [style*="margin-top:56px"] a {
+        width: 100% !important;
+        text-align: center !important;
+        white-space: normal !important;
+      }
+
+      /* HOW IT WORKS */
+      #how-it-works-section {
+        padding: 56px 20px !important;
+      }
+      #how-it-works-section h2 {
+        font-size: 28px !important;
+      }
+      #how-it-works-section [style*="grid-template-columns:1fr 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+
+      /* SIMULATIONS */
+      #simulations {
+        padding: 56px 20px !important;
+      }
+      #simulations h2 {
+        font-size: 26px !important;
+      }
+      #simulations [style*="align-items:flex-end;justify-content:space-between"] {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 16px !important;
+        margin-bottom: 24px !important;
+      }
+      #simulations [style*="grid-template-columns:4px 1fr auto"] {
+        grid-template-columns: 4px 1fr !important;
+        padding: 20px 16px !important;
+        gap: 16px !important;
+      }
+      #simulations [style*="grid-template-columns:4px 1fr auto"] > div:last-child {
+        display: none !important;
+      }
+
+      /* AI DIFFERENTIATOR */
+      #ai-diff-section {
+        padding: 56px 20px !important;
+      }
+      #ai-diff-section h2 {
+        font-size: 26px !important;
+      }
+      #ai-diff-section [style*="grid-template-columns:1fr 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+      #ai-diff-section [style*="grid-template-columns:1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+      #ai-diff-section [style*="gap:40px;align-items:center"] {
+        flex-direction: column !important;
+        gap: 24px !important;
+        align-items: flex-start !important;
+      }
+
+      /* OUTCOMES */
+      #outcomes-section {
+        padding: 56px 20px !important;
+      }
+      #outcomes-section h2 {
+        font-size: 26px !important;
+      }
+      #outcomes-section > div > div:first-child {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 16px !important;
+        margin-bottom: 24px !important;
+      }
+      #outcomes-section [style*="grid-template-columns:1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+      #outcomes-section [style*="padding:44px"] {
+        padding: 28px 20px !important;
+      }
+
+      /* PRICING */
+      #pricing {
+        padding: 56px 20px !important;
+      }
+      #pricing h2 {
+        font-size: 28px !important;
+      }
+      #pricing [style*="grid-template-columns:1fr 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+      #pricing button {
+        padding: 12px 18px !important;
+        font-size: 15px !important;
+      }
+      #pricing [style*="background:#060e1e"][style*="display:flex"] {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 20px !important;
+        padding: 24px 20px !important;
+      }
+      #pricing [style*="background:#060e1e"][style*="display:flex"] a {
+        width: 100% !important;
+        text-align: center !important;
+        white-space: normal !important;
+      }
+
+      /* FOUNDING PARTNER */
+      #founding {
+        padding: 56px 20px !important;
+      }
+      #founding h2 {
+        font-size: 28px !important;
+      }
+      #founding > div {
+        grid-template-columns: 1fr !important;
+        gap: 48px !important;
+      }
+      #founding > div > div:last-child {
+        position: static !important;
+        top: auto !important;
+      }
+
+      /* DEMO FORM */
+      #demo {
+        padding: 56px 20px !important;
+      }
+      #demo h2 {
+        font-size: 28px !important;
+      }
+      #demo > div {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+      }
+      #demo form {
+        padding: 24px 20px !important;
+      }
+      #demo form [style*="grid-template-columns:1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+
+      /* FOOTER */
+      #footer-main {
+        padding: 48px 20px 32px !important;
+      }
+      #footer-main [style*="grid-template-columns:2fr 1fr 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+      }
+      #footer-main > div > div:last-child {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 8px !important;
+      }
+    }
+  </style>
 </helmet>
 
 <!-- ── NAV ──────────────────────────────────────────────── -->
-<nav style="padding:0 64px;height:84px;background:white;border-bottom:1px solid #e8e2d8;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;">
-  <div style="display:flex;align-items:baseline;gap:14px;">
+<nav id="main-nav" style="padding:0 64px;height:84px;background:white;border-bottom:1px solid #e8e2d8;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;">
+  <div id="nav-logo" style="display:flex;align-items:baseline;gap:14px;">
     <div style="font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:#0d1f3c;">Stratagem</div>
     <div style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#9a8a6a;letter-spacing:0.04em;font-style:italic;">Judgment is built, not taught.</div>
   </div>
-  <div style="display:flex;gap:40px;align-items:center;">
-    <a href="#simulations" style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#0d1f3c;opacity:0.6;">Simulations</a>
-    <a href="#faculty" style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#0d1f3c;opacity:0.6;">For Faculty</a>
-    <a href="#corporate" style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#0d1f3c;opacity:0.6;">For Corporates</a>
-    <a href="#pricing" style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#0d1f3c;opacity:0.6;">Pricing</a>
-    <a href="#demo" style="background:#0d1f3c;color:white;padding:13px 32px;font-family:'Source Sans 3',sans-serif;font-size:19px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;border-radius:2px;">Book Demo</a>
+  <div id="nav-links" style="display:flex;gap:40px;align-items:center;">
+    <a href="#simulations" onclick="document.getElementById('nav-links').classList.remove('nav-open');document.getElementById('nav-overlay').style.display='none';gtag('event','nav_click',{section:'simulations'})" style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#0d1f3c;opacity:0.6;">Simulations</a>
+    <a href="#faculty" onclick="document.getElementById('nav-links').classList.remove('nav-open');document.getElementById('nav-overlay').style.display='none';gtag('event','nav_click',{section:'faculty'})" style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#0d1f3c;opacity:0.6;">For Faculty</a>
+    <a href="#corporate" onclick="document.getElementById('nav-links').classList.remove('nav-open');document.getElementById('nav-overlay').style.display='none';gtag('event','nav_click',{section:'corporates'})" style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#0d1f3c;opacity:0.6;">For Corporates</a>
+    <a href="#pricing" onclick="document.getElementById('nav-links').classList.remove('nav-open');document.getElementById('nav-overlay').style.display='none';gtag('event','nav_click',{section:'pricing'})" style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#0d1f3c;opacity:0.6;">Pricing</a>
+    <a href="#demo" onclick="document.getElementById('nav-links').classList.remove('nav-open');document.getElementById('nav-overlay').style.display='none';gtag('event','cta_click',{location:'nav'})" style="background:#0d1f3c;color:white;padding:13px 32px;font-family:'Source Sans 3',sans-serif;font-size:19px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;border-radius:2px;">Book Demo</a>
   </div>
+  <button id="nav-toggle" aria-label="Open navigation" onclick="var nl=document.getElementById('nav-links');var ov=document.getElementById('nav-overlay');nl.classList.toggle('nav-open');ov.style.display=nl.classList.contains('nav-open')?'block':'none';this.setAttribute('aria-label',nl.classList.contains('nav-open')?'Close navigation':'Open navigation');">
+    <span></span><span></span><span></span>
+  </button>
+  <div id="nav-overlay" onclick="document.getElementById('nav-links').classList.remove('nav-open');this.style.display='none'"></div>
 </nav>
 
 <!-- ── HERO ─────────────────────────────────────────────── -->
-<section style="background:linear-gradient(150deg,#0d1f3c 0%,#0f2848 100%);padding:80px 64px;min-height:620px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;">
+<section id="hero-section" style="background:linear-gradient(150deg,#0d1f3c 0%,#0f2848 100%);padding:80px 64px;min-height:620px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;">
   <div>
     <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px;">
       <div style="display:inline-flex;align-items:center;gap:7px;background:rgba(196,123,26,0.15);border:1px solid rgba(196,123,26,0.3);padding:5px 14px;border-radius:3px;">
@@ -107,7 +495,7 @@
 </section>
 
 <!-- ── METHODOLOGY STRIP ──────────────────────────────────── -->
-<section style="background:#f7f4f0;padding:28px 64px;border-bottom:1px solid #e8e2d8;">
+<section id="methodology-strip" style="background:#f7f4f0;padding:28px 64px;border-bottom:1px solid #e8e2d8;">
   <div style="max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:48px;">
     <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#9a8a6a;white-space:nowrap;flex-shrink:0;">Built on</div>
     <div style="width:1px;height:28px;background:#ddd5bc;flex-shrink:0;"></div>
@@ -118,7 +506,7 @@
       </div>
       <div style="display:flex;align-items:center;gap:10px;padding:0 32px;border-right:1px solid #ddd5bc;">
         <div style="width:5px;height:5px;border-radius:50%;background:#7c5cbc;flex-shrink:0;"></div>
-        <span style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:600;color:#0d1f3c;white-space:nowrap;">Powered by Claude AI</span>
+        <span style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:600;color:#0d1f3c;white-space:nowrap;">Powered by Stratagem</span>
       </div>
       <div style="display:flex;align-items:center;gap:10px;padding:0 32px;border-right:1px solid #ddd5bc;">
         <div style="width:5px;height:5px;border-radius:50%;background:#4a72b0;flex-shrink:0;"></div>
@@ -174,7 +562,7 @@
         </div>
       </div>
     </div>
-    <a href="#demo" style="display:inline-block;background:#c47b1a;color:white;padding:13px 32px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;border-radius:2px;">Request Faculty Demo</a>
+    <a href="#demo" onclick="gtag('event','cta_click',{location:'faculty'})" style="display:inline-block;background:#c47b1a;color:white;padding:13px 32px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;border-radius:2px;">Request Faculty Demo</a>
   </div>
   <div id="corporate" style="background:#0d1f3c;padding:72px 64px;">
     <div style="display:inline-block;background:rgba(255,255,255,0.08);padding:4px 12px;border-radius:2px;margin-bottom:28px;">
@@ -212,12 +600,12 @@
         </div>
       </div>
     </div>
-    <a href="#demo" style="display:inline-block;border:1px solid rgba(196,123,26,0.5);color:#c47b1a;padding:13px 32px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;border-radius:2px;">Request Corporate Demo</a>
+    <a href="#demo" onclick="gtag('event','cta_click',{location:'corporate'})" style="display:inline-block;border:1px solid rgba(196,123,26,0.5);color:#c47b1a;padding:13px 32px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;border-radius:2px;">Request Corporate Demo</a>
   </div>
 </section>
 
 <!-- ── BEFORE / AFTER ────────────────────────────────────── -->
-<section style="background:#060e1e;padding:96px 64px;">
+<section id="before-after-section" style="background:#060e1e;padding:96px 64px;">
   <div style="max-width:1280px;margin:0 auto;">
 
     <!-- Header -->
@@ -328,14 +716,14 @@
       <div>
         <p style="font-family:'Playfair Display',serif;font-size:22px;font-style:italic;color:rgba(243,237,227,0.85);line-height:1.6;max-width:680px;">"The goal is not to understand what a good decision looks like — it's to <em style="color:#c47b1a;">feel what a bad one costs."</em></p>
       </div>
-      <a href="#demo" style="background:#c47b1a;color:white;padding:14px 32px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;white-space:nowrap;flex-shrink:0;">See It Live →</a>
+      <a href="#demo" onclick="gtag('event','cta_click',{location:'simulations'})" style="background:#c47b1a;color:white;padding:14px 32px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;white-space:nowrap;flex-shrink:0;">See It Live →</a>
     </div>
 
   </div>
 </section>
 
 <!-- ── HOW IT WORKS ──────────────────────────────────────── -->
-<section style="background:white;padding:88px 64px;">
+<section id="how-it-works-section" style="background:white;padding:88px 64px;">
   <div style="max-width:1280px;margin:0 auto;">
     <div style="text-align:center;margin-bottom:64px;">
       <p style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#c47b1a;margin-bottom:14px;">How It Works</p>
@@ -389,10 +777,10 @@
             <span style="background:#e8eef5;color:#4a72b0;font-family:'Source Sans 3',sans-serif;font-size:19px;font-weight:600;padding:3px 9px;border-radius:2px;">Corporate</span>
           </div>
           <h3 style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#0d1f3c;margin-bottom:7px;">AutoRevive Dynamics</h3>
-          <p style="font-family:'Source Sans 3',sans-serif;font-size:18px;line-height:1.55;color:#5a6070;">Navigate an ICE-to-EV transition at a distressed automaker with 5 Claude AI advisors. Real quarterly financial modeling, stochastic market events, and board pressure across nine quarters.</p>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:18px;line-height:1.55;color:#5a6070;">Navigate an ICE-to-EV transition at a distressed automaker with AI Advisor. Real quarterly financial modeling, stochastic market events, and board pressure across nine quarters.</p>
         </div>
         <div style="display:flex;flex-direction:column;gap:6px;min-width:160px;text-align:right;">
-          <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;color:#8a9ab5;">5 AI Agents · 9 Quarters</div>
+          <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;color:#8a9ab5;">AI Advisor · 9 Quarters</div>
           <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;color:#8a9ab5;">MBA-Level Rigor</div>
           <a href="#" style="font-family:'Source Sans 3',sans-serif;font-size:18px;color:#c47b1a;font-weight:600;">Learn more →</a>
         </div>
@@ -455,7 +843,7 @@
 </section>
 
 <!-- ── AI DIFFERENTIATOR ─────────────────────────────────── -->
-<section style="background:white;padding:88px 64px;border-top:1px solid #e8e2d8;">
+<section id="ai-diff-section" style="background:white;padding:88px 64px;border-top:1px solid #e8e2d8;">
   <div style="max-width:1280px;margin:0 auto;">
     <div style="text-align:center;margin-bottom:52px;">
       <p style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#c47b1a;margin-bottom:14px;">Why Stratagem Works</p>
@@ -512,7 +900,7 @@
 </section>
 
 <!-- ── SIMULATION OUTCOMES (PLACEHOLDER) ───────────────── -->
-<section style="background:#f0f4f8;padding:88px 64px;">
+<section id="outcomes-section" style="background:#f0f4f8;padding:88px 64px;">
   <div style="max-width:1280px;margin:0 auto;">
     <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:44px;">
       <div>
@@ -586,13 +974,13 @@
     <!-- Toggle -->
     <div style="display:flex;justify-content:center;margin-bottom:56px;">
       <div style="display:flex;border:1px solid #e0d8cc;overflow:hidden;">
-        <button style="{{ pricingUniTabStyle }}" onClick="{{ setPricingUniversity }}">University / Faculty</button>
-        <button style="{{ pricingCorpTabStyle }}" onClick="{{ setPricingCorporate }}">Corporate L&amp;D</button>
+        <button id="pricing-uni-tab" onclick="setPricingUniversity()" style="padding:12px 36px;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:#0d1f3c;color:#f3ede3;">University / Faculty</button>
+        <button id="pricing-corp-tab" onclick="setPricingCorporate()" style="padding:12px 36px;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:#f0ebe2;color:#9a8a6a;">Corporate L&amp;D</button>
       </div>
     </div>
 
     <!-- ── UNIVERSITY PRICING ── -->
-    <sc-if value="{{ showPricingUni }}" hint-placeholder-val="{{ true }}">
+    <div id="pricing-uni">
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:#e8e2d8;margin-bottom:28px;">
 
         <!-- Tier 1: Single Sim -->
@@ -624,7 +1012,7 @@
               <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Email support</span>
             </div>
           </div>
-          <a href="#demo" style="display:block;text-align:center;border:1px solid #0d1f3c;color:#0d1f3c;padding:13px 24px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:36px;">Get a Quote</a>
+          <a href="#demo" onclick="gtag('event','cta_click',{location:'pricing'})" style="display:block;text-align:center;border:1px solid #0d1f3c;color:#0d1f3c;padding:13px 24px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:36px;">Get a Quote</a>
         </div>
 
         <!-- Tier 2: Platform — Recommended -->
@@ -663,7 +1051,7 @@
               <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.7);line-height:1.5;">Onboarding support included</span>
             </div>
           </div>
-          <a href="#demo" style="display:block;text-align:center;background:#c47b1a;color:white;padding:13px 24px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:36px;">Get a Quote</a>
+          <a href="#demo" onclick="gtag('event','cta_click',{location:'pricing'})" style="display:block;text-align:center;background:#c47b1a;color:white;padding:13px 24px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:36px;">Get a Quote</a>
         </div>
 
         <!-- Tier 3: Annual -->
@@ -699,14 +1087,14 @@
               <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Multi-program support</span>
             </div>
           </div>
-          <a href="#demo" style="display:block;text-align:center;border:1px solid #0d1f3c;color:#0d1f3c;padding:13px 24px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:36px;">Get a Quote</a>
+          <a href="#demo" onclick="gtag('event','cta_click',{location:'pricing'})" style="display:block;text-align:center;border:1px solid #0d1f3c;color:#0d1f3c;padding:13px 24px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:36px;">Get a Quote</a>
         </div>
 
       </div>
-    </sc-if>
+    </div>
 
     <!-- ── CORPORATE PRICING ── -->
-    <sc-if value="{{ showPricingCorp }}" hint-placeholder-val="{{ false }}">
+    <div id="pricing-corp" style="display:none">
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:#e8e2d8;margin-bottom:28px;">
 
         <!-- Tier 1: Single Workshop -->
@@ -734,7 +1122,7 @@
               <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Self-learning or instructor-led</span>
             </div>
           </div>
-          <a href="#demo" style="display:block;text-align:center;border:1px solid #0d1f3c;color:#0d1f3c;padding:13px 24px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:36px;">Get a Quote</a>
+          <a href="#demo" onclick="gtag('event','cta_click',{location:'pricing'})" style="display:block;text-align:center;border:1px solid #0d1f3c;color:#0d1f3c;padding:13px 24px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:36px;">Get a Quote</a>
         </div>
 
         <!-- Tier 2: Quarterly — Recommended -->
@@ -769,7 +1157,7 @@
               <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.7);line-height:1.5;">AI debrief + manager summary</span>
             </div>
           </div>
-          <a href="#demo" style="display:block;text-align:center;background:#c47b1a;color:white;padding:13px 24px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:36px;">Get a Quote</a>
+          <a href="#demo" onclick="gtag('event','cta_click',{location:'pricing'})" style="display:block;text-align:center;background:#c47b1a;color:white;padding:13px 24px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:36px;">Get a Quote</a>
         </div>
 
         <!-- Tier 3: Enterprise -->
@@ -801,11 +1189,11 @@
               <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">SSO &amp; enterprise security</span>
             </div>
           </div>
-          <a href="#demo" style="display:block;text-align:center;border:1px solid #0d1f3c;color:#0d1f3c;padding:13px 24px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:36px;">Talk to Us</a>
+          <a href="#demo" onclick="gtag('event','cta_click',{location:'pricing'})" style="display:block;text-align:center;border:1px solid #0d1f3c;color:#0d1f3c;padding:13px 24px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:36px;">Talk to Us</a>
         </div>
 
       </div>
-    </sc-if>
+    </div>
 
     <!-- Founding Partner callout -->
     <div style="background:#060e1e;padding:32px 40px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;">
@@ -952,7 +1340,7 @@
       <div style="background:#c47b1a;padding:36px;">
         <div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:white;line-height:1.2;margin-bottom:12px;">Express interest in under 2 minutes.</div>
         <p style="font-family:'Source Sans 3',sans-serif;font-size:19px;line-height:1.65;color:rgba(255,255,255,0.72);margin-bottom:28px;">No commitment. We'll reach out within 48 hours to understand your program and see if there's a fit.</p>
-        <a href="#demo" style="display:block;text-align:center;background:white;color:#c47b1a;padding:15px 24px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">Apply for a Founding Slot →</a>
+        <a href="#demo" onclick="gtag('event','cta_click',{location:'founding'})" style="display:block;text-align:center;background:white;color:#c47b1a;padding:15px 24px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">Apply for a Founding Slot →</a>
         <div style="text-align:center;margin-top:14px;font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(255,255,255,0.45);letter-spacing:0.04em;">No commitment · Response within 48 hours</div>
       </div>
 
@@ -1013,12 +1401,12 @@
 
       <!-- Audience toggle -->
       <div style="display:flex;border-bottom:2px solid #e0d8cc;">
-        <button style="{{ uniTabStyle }}" onClick="{{ setUniversity }}">University / Faculty</button>
-        <button style="{{ corpTabStyle }}" onClick="{{ setCorporate }}">Corporate L&amp;D</button>
+        <button id="form-uni-tab" onclick="setUniversity()" style="flex:1;padding:14px 20px;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:#0d1f3c;color:#f3ede3;">University / Faculty</button>
+        <button id="form-corp-tab" onclick="setCorporate()" style="flex:1;padding:14px 20px;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:#f7f4f0;color:#9a8a6a;">Corporate L&amp;D</button>
       </div>
 
       <!-- Success state -->
-      <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+      <div id="demo-success" style="display:none">
         <div style="padding:64px 48px;text-align:center;">
           <div style="width:60px;height:60px;background:#c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 28px;">
             <span style="color:white;font-size:24px;font-weight:700;">✓</span>
@@ -1029,11 +1417,11 @@
             <a href="#simulations" style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#c47b1a;font-weight:600;">Explore the simulations while you wait →</a>
           </div>
         </div>
-      </sc-if>
+      </div>
 
       <!-- Form -->
-      <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
-        <form onSubmit="{{ handleSubmit }}" style="padding:36px 40px;display:flex;flex-direction:column;gap:20px;">
+      <div id="demo-form-container">
+        <form onsubmit="handleDemoSubmit(event)" style="padding:36px 40px;display:flex;flex-direction:column;gap:20px;">
 
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
             <div style="display:flex;flex-direction:column;gap:7px;">
@@ -1047,14 +1435,14 @@
           </div>
 
           <div style="display:flex;flex-direction:column;gap:7px;">
-            <label style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9a8a6a;">{{ institutionLabel }} *</label>
-            <input required="" name="institution" type="text" placeholder="{{ institutionPlaceholder }}" style="padding:11px 14px;border:1px solid #e0d8cc;font-family:'Source Sans 3',sans-serif;font-size:18px;color:#0d1f3c;outline:none;width:100%;"></input>
+            <label id="institution-label" style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9a8a6a;">Institution / University *</label>
+            <input id="institution-input" required="" name="institution" type="text" placeholder="e.g. IBA, Harvard Business School, INSEAD" style="padding:11px 14px;border:1px solid #e0d8cc;font-family:'Source Sans 3',sans-serif;font-size:18px;color:#0d1f3c;outline:none;width:100%;"></input>
           </div>
 
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
             <div style="display:flex;flex-direction:column;gap:7px;">
               <label style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9a8a6a;">Your Role *</label>
-              <input required="" name="role" type="text" placeholder="{{ rolePlaceholder }}" style="padding:11px 14px;border:1px solid #e0d8cc;font-family:'Source Sans 3',sans-serif;font-size:18px;color:#0d1f3c;outline:none;width:100%;"></input>
+              <input id="role-input" required="" name="role" type="text" placeholder="e.g. Associate Dean, Professor" style="padding:11px 14px;border:1px solid #e0d8cc;font-family:'Source Sans 3',sans-serif;font-size:18px;color:#0d1f3c;outline:none;width:100%;"></input>
             </div>
             <div style="display:flex;flex-direction:column;gap:7px;">
               <label style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9a8a6a;">Cohort Size</label>
@@ -1085,26 +1473,26 @@
             <textarea name="message" rows="3" placeholder="Your timeline, program context, or questions..." style="padding:11px 14px;border:1px solid #e0d8cc;font-family:'Source Sans 3',sans-serif;font-size:18px;color:#0d1f3c;outline:none;width:100%;resize:vertical;line-height:1.6;"></textarea>
           </div>
 
-          <button type="submit" style="{{ submitStyle }}">{{ submitLabel }}</button>
+          <button id="form-submit" type="submit" style="width:100%;padding:15px;background:#c47b1a;color:white;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">Request Demo →</button>
 
-          <sc-if value="{{ showError }}" hint-placeholder-val="{{ false }}">
+          <div id="form-error" style="display:none">
             <div style="background:#fdf0f0;border:1px solid #f0c8c8;padding:12px 16px;display:flex;align-items:center;gap:10px;">
               <span style="color:#c0392b;font-size:18px;">⚠</span>
               <p style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#c0392b;line-height:1.5;">Something went wrong. Please try again or email us directly at <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="631610020e024d1102100b06060723100e0211170204060d171b4d020a">[email&#160;protected]</a></strong></p>
             </div>
-          </sc-if>
+          </div>
 
           <p style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#b0a898;text-align:center;line-height:1.6;">No commitment. We respond within 48 hours. Your information is never shared.</p>
 
         </form>
-      </sc-if>
+      </div>
 
     </div>
   </div>
 </section>
 
 <!-- ── FOOTER ────────────────────────────────────────────── -->
-<footer style="background:#060e1e;padding:64px 64px 40px;">
+<footer id="footer-main" style="background:#060e1e;padding:64px 64px 40px;">
   <div style="max-width:1280px;margin:0 auto;">
     <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:64px;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,0.07);">
       <div>
@@ -1141,11 +1529,10 @@
     </div>
     <div style="display:flex;align-items:center;justify-content:space-between;padding-top:28px;">
       <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;color:rgba(243,237,227,0.25);">© 2025 Stratagem. All rights reserved.</div>
-      <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;color:rgba(243,237,227,0.25);">Powered by Claude AI</div>
+      <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;color:rgba(243,237,227,0.25);">Powered by Stratagem</div>
     </div>
   </div>
 </footer>
-</x-dc>
 <template id="__bundler_thumbnail">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 56">
     <rect width="80" height="56" fill="#0d1f3c"/>
@@ -1158,82 +1545,93 @@
     <rect x="24" y="44" width="16" height="3" rx="1" fill="#c47b1a"/>
   </svg>
 </template>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/x-dc" data-dc-script>
-class Component extends DCLogic {
-  state = {
-    audience: 'university',
-    pricingAudience: 'university',
-    submitted: false,
-    submitting: false,
-    error: false
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+(function () {
+  var state = { audience: 'university', pricingAudience: 'university', submitted: false, submitting: false, error: false };
+
+  var PRICING_BASE = "padding:12px 36px;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;";
+  var FORM_BASE    = "flex:1;padding:14px 20px;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;";
+
+  function el(id) { return document.getElementById(id); }
+
+  function updateUI() {
+    var isUni        = state.audience === 'university';
+    var isPricingUni = state.pricingAudience === 'university';
+
+    // Form audience tabs
+    if (el('form-uni-tab'))  el('form-uni-tab').setAttribute('style',  FORM_BASE + (isUni  ? 'background:#0d1f3c;color:#f3ede3;' : 'background:#f7f4f0;color:#9a8a6a;'));
+    if (el('form-corp-tab')) el('form-corp-tab').setAttribute('style', FORM_BASE + (!isUni ? 'background:#0d1f3c;color:#f3ede3;' : 'background:#f7f4f0;color:#9a8a6a;'));
+
+    // Institution label & placeholders
+    if (el('institution-label')) el('institution-label').textContent = (isUni ? 'Institution / University' : 'Company') + ' *';
+    if (el('institution-input')) el('institution-input').placeholder  = isUni ? 'e.g. IBA, Harvard Business School, INSEAD' : 'e.g. McKinsey, Unilever, Engro';
+    if (el('role-input'))        el('role-input').placeholder         = isUni ? 'e.g. Associate Dean, Professor' : 'e.g. Head of L&D, CHRO';
+
+    // Pricing tabs
+    if (el('pricing-uni-tab'))  el('pricing-uni-tab').setAttribute('style',  PRICING_BASE + (isPricingUni  ? 'background:#0d1f3c;color:#f3ede3;' : 'background:#f0ebe2;color:#9a8a6a;'));
+    if (el('pricing-corp-tab')) el('pricing-corp-tab').setAttribute('style', PRICING_BASE + (!isPricingUni ? 'background:#0d1f3c;color:#f3ede3;' : 'background:#f0ebe2;color:#9a8a6a;'));
+
+    // Pricing panels
+    if (el('pricing-uni'))  el('pricing-uni').style.display  = isPricingUni  ? '' : 'none';
+    if (el('pricing-corp')) el('pricing-corp').style.display = !isPricingUni ? '' : 'none';
+
+    // Form / success visibility
+    if (el('demo-form-container')) el('demo-form-container').style.display = state.submitted ? 'none' : '';
+    if (el('demo-success'))        el('demo-success').style.display        = state.submitted ? ''     : 'none';
+
+    // Error message
+    if (el('form-error')) el('form-error').style.display = state.error ? '' : 'none';
+
+    // Submit button
+    var btn = el('form-submit');
+    if (btn) {
+      btn.textContent = state.submitting ? 'Sending...' : 'Request Demo →';
+      btn.disabled    = state.submitting;
+      btn.setAttribute('style', 'width:100%;padding:15px;background:' + (state.submitting ? '#9a8a6a' : '#c47b1a') +
+        ';color:white;border:none;cursor:' + (state.submitting ? 'not-allowed' : 'pointer') +
+        ";font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;");
+    }
+  }
+
+  function setState(patch) { Object.assign(state, patch); updateUI(); }
+
+  window.setUniversity      = function () { gtag('event','form_tab',{audience:'university'}); setState({ audience: 'university' }); };
+  window.setCorporate       = function () { gtag('event','form_tab',{audience:'corporate'}); setState({ audience: 'corporate' }); };
+  window.setPricingUniversity = function () { gtag('event','pricing_tab',{audience:'university'}); setState({ pricingAudience: 'university' }); };
+  window.setPricingCorporate  = function () { gtag('event','pricing_tab',{audience:'corporate'}); setState({ pricingAudience: 'corporate' }); };
+
+  window.handleDemoSubmit = function (e) {
+    e.preventDefault();
+    if (state.submitting) return;
+    setState({ submitting: true, error: false });
+    var form = e.target;
+    var fd   = new FormData(form);
+    var payload = JSON.stringify({
+      audience:    state.audience === 'university' ? 'University / Faculty' : 'Corporate L&D',
+      name:        fd.get('name')        || '',
+      email:       fd.get('email')       || '',
+      institution: fd.get('institution') || '',
+      role:        fd.get('role')        || '',
+      cohortSize:  fd.get('cohortSize')  || '',
+      simulation:  fd.get('simulation')  || '',
+      message:     fd.get('message')     || ''
+    });
+    fetch('https://script.google.com/macros/s/AKfycbzgVGlORah1k4BDJxwbUl_JFuctJ5neZWcLEVFe1-kHdArvb5BwrljJb8ZfAoRL3SWnKg/exec', {
+      method: 'POST',
+      body:    payload,
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' }
+    })
+    .then(function (res) { return res.json(); })
+    .then(function (json) {
+      if (json.result === 'success') { gtag('event','form_submit',{audience:state.audience,status:'success'}); setState({ submitted: true,  submitting: false }); }
+      else                           { gtag('event','form_submit',{audience:state.audience,status:'error'});   setState({ submitting: false, error: true }); }
+    })
+    .catch(function () { gtag('event','form_submit',{audience:state.audience,status:'error'}); setState({ submitting: false, error: true }); });
   };
 
-  renderVals() {
-    const { audience, submitted, submitting } = this.state;
-    const isUni = audience === 'university';
-
-    const tabBase = 'flex:1;padding:14px 20px;border:none;cursor:pointer;font-family:Source Sans 3,sans-serif;font-size:18px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;';
-    const activeTab = tabBase + 'background:#0d1f3c;color:#f3ede3;';
-    const inactiveTab = tabBase + 'background:#f7f4f0;color:#9a8a6a;';
-
-    return {
-      submitted,
-      showForm: !submitted,
-
-      uniTabStyle: isUni ? activeTab : inactiveTab,
-      corpTabStyle: !isUni ? activeTab : inactiveTab,
-
-      setUniversity: () => this.setState({ audience: 'university' }),
-      setCorporate: () => this.setState({ audience: 'corporate' }),
-
-      institutionLabel: isUni ? 'Institution / University' : 'Company',
-      institutionPlaceholder: isUni ? 'e.g. IBA, Harvard Business School, INSEAD' : 'e.g. McKinsey, Unilever, Engro',
-      rolePlaceholder: isUni ? 'e.g. Associate Dean, Professor' : 'e.g. Head of L&D, CHRO',
-
-      showPricingUni: this.state.pricingAudience === 'university',
-      showPricingCorp: this.state.pricingAudience === 'corporate',
-      setPricingUniversity: () => this.setState({ pricingAudience: 'university' }),
-      setPricingCorporate: () => this.setState({ pricingAudience: 'corporate' }),
-      pricingUniTabStyle: this.state.pricingAudience === 'university'
-        ? 'padding:12px 36px;border:none;cursor:pointer;font-family:Source Sans 3,sans-serif;font-size:18px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:#0d1f3c;color:#f3ede3;'
-        : 'padding:12px 36px;border:none;cursor:pointer;font-family:Source Sans 3,sans-serif;font-size:18px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:#f0ebe2;color:#9a8a6a;',
-      pricingCorpTabStyle: this.state.pricingAudience === 'corporate'
-        ? 'padding:12px 36px;border:none;cursor:pointer;font-family:Source Sans 3,sans-serif;font-size:18px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:#0d1f3c;color:#f3ede3;'
-        : 'padding:12px 36px;border:none;cursor:pointer;font-family:Source Sans 3,sans-serif;font-size:18px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:#f0ebe2;color:#9a8a6a;',
-      showError: this.state.error,
-      submitLabel: submitting ? 'Sending...' : 'Request Demo →',
-      submitStyle: 'width:100%;padding:15px;background:' + (submitting ? '#9a8a6a' : '#c47b1a') + ';color:white;border:none;cursor:' + (submitting ? 'not-allowed' : 'pointer') + ';font-family:Source Sans 3,sans-serif;font-size:18px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;',
-
-      handleSubmit: (e) => {
-        e.preventDefault();
-        if (this.state.submitting) return;
-        this.setState({ submitting: true, error: false });
-
-        const form = e.target;
-        const data = new FormData(form);
-        // Tag which audience tab was active
-        data.append('_audience', this.state.audience === 'university' ? 'University / Faculty' : 'Corporate L&D');
-        data.append('_subject', 'New Demo Request — Stratagem');
-
-        fetch('https://formspree.io/usama.rasheed@smartagentx.ai', {
-          method: 'POST',
-          body: data,
-          headers: { 'Accept': 'application/json' }
-        })
-        .then(res => {
-          if (res.ok) {
-            this.setState({ submitted: true, submitting: false });
-          } else {
-            this.setState({ submitting: false, error: true });
-          }
-        })
-        .catch(() => {
-          this.setState({ submitting: false, error: true });
-        });
-      }
-    };
-  }
-}
+  document.addEventListener('DOMContentLoaded', updateUI);
+})();
 </script>
 </body>
 </html>
