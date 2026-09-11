@@ -11,7 +11,9 @@ browser ──POST /api/contact──▶ Traefik ──(PathPrefix /api, priorit
                               └─everything else──────────────────────────▶ app_www (nginx)
 ```
 
-The old Google Apps Script endpoint has been removed from `index.html`.
+`index.html` still posts to the old Google Apps Script endpoint. Switching it
+to `/api/contact` is a deliberate, separate follow-up commit — done only
+after the `api` service and Postgres are confirmed healthy in production.
 
 ---
 
@@ -76,8 +78,10 @@ git revert <sha>                    # do not force-push
 docker compose up -d --build
 ```
 
-Reverting restores the Google Apps Script endpoint in `index.html`. The
-`contact_submissions` table is left untouched.
+The `contact_submissions` table is left untouched. If `index.html` has since
+been switched to `/api/contact` in a later commit, reverting this commit
+alone will not restore the Google Apps Script endpoint — that revert must
+target the commit that made the frontend switch.
 
 ---
 
