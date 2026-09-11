@@ -1578,6 +1578,10 @@
       <div id="demo-form-container">
         <form onsubmit="handleDemoSubmit(event)" style="padding:36px 40px;display:flex;flex-direction:column;gap:20px;">
 
+          <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;">
+            <input name="company_website" type="text" tabindex="-1" autocomplete="off"></input>
+          </div>
+
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
             <div style="display:flex;flex-direction:column;gap:7px;">
               <label style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9a8a6a;">Name *</label>
@@ -1824,12 +1828,13 @@
       role:        fd.get('role')        || '',
       cohortSize:  fd.get('cohortSize')  || '',
       simulation:  fd.get('simulation')  || '',
-      message:     fd.get('message')     || ''
+      message:     fd.get('message')     || '',
+      company_website: fd.get('company_website') || ''
     });
-    fetch('https://script.google.com/macros/s/AKfycbzgVGlORah1k4BDJxwbUl_JFuctJ5neZWcLEVFe1-kHdArvb5BwrljJb8ZfAoRL3SWnKg/exec', {
+    fetch('/api/contact', {
       method: 'POST',
       body:    payload,
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' }
+      headers: { 'Content-Type': 'application/json' }
     })
     .then(function (res) { return res.json(); })
     .then(function (json) {
