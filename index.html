@@ -475,17 +475,27 @@
       #pricing [style*="grid-template-columns:1fr 1fr 1fr"] {
         grid-template-columns: 1fr !important;
       }
+      #pricing [style*="grid-template-columns:1fr 1fr 1fr"] > div {
+        padding: 34px 22px !important;
+      }
+      #pricing [style*="border:1px solid #e0d8cc"] {
+        flex-direction: column !important;
+        width: 100% !important;
+      }
       #pricing button {
-        padding: 12px 18px !important;
+        padding: 13px 18px !important;
         font-size: 15px !important;
       }
-      #pricing [style*="background:#060e1e"][style*="display:flex"] {
+      #pricing [data-block="factors"] {
+        padding: 32px 20px !important;
+      }
+      #pricing [data-block="factors-cta"] {
         flex-direction: column !important;
         align-items: flex-start !important;
         gap: 20px !important;
         padding: 24px 20px !important;
       }
-      #pricing [style*="background:#060e1e"][style*="display:flex"] a {
+      #pricing [data-block="factors-cta"] a {
         width: 100% !important;
         text-align: center !important;
         white-space: normal !important;
@@ -1110,37 +1120,37 @@
     <!-- Header -->
     <div style="text-align:center;margin-bottom:52px;">
       <p style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#c47b1a;margin-bottom:14px;">Pricing</p>
-      <h2 style="font-family:'Playfair Display',serif;font-size:44px;font-weight:700;color:#0d1f3c;letter-spacing:-0.02em;line-height:1.1;margin-bottom:16px;">Cohort-based pricing.<br>Not per seat.</h2>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:18px;line-height:1.7;color:#5a6070;font-weight:300;max-width:520px;margin:0 auto;">Budget for a program, not a headcount. One price covers your entire cohort, whether 20 students or 120.</p>
+      <h2 style="font-family:'Playfair Display',serif;font-size:44px;font-weight:700;color:#0d1f3c;letter-spacing:-0.02em;line-height:1.1;margin-bottom:16px;">Designed around your program,<br>not your headcount.</h2>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:18px;line-height:1.7;color:#5a6070;font-weight:300;max-width:600px;margin:0 auto 16px;">Stratagem uses program-based pricing rather than per-seat pricing. Whether you're running a single MBA course, an executive education program, or an institution-wide learning initiative, we tailor the license around your cohort size, simulations, delivery model, and academic requirements.</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:18px;line-height:1.7;color:#9a8a6a;font-weight:400;max-width:600px;margin:0 auto;">No per-seat fees. No complicated usage calculations.</p>
     </div>
 
     <!-- Toggle -->
     <div style="display:flex;justify-content:center;margin-bottom:56px;">
       <div style="display:flex;border:1px solid #e0d8cc;overflow:hidden;">
-        <button id="pricing-uni-tab" onclick="setPricingUniversity()" style="padding:12px 36px;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:#0d1f3c;color:#f3ede3;">University / Faculty</button>
-        <button id="pricing-corp-tab" onclick="setPricingCorporate()" style="padding:12px 36px;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:#f0ebe2;color:#9a8a6a;">Corporate L&amp;D</button>
+        <button id="pricing-uni-tab" onclick="setPricingUniversity()" style="padding:12px 36px;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:#0d1f3c;color:#f3ede3;">Faculty &amp; University</button>
+        <button id="pricing-corp-tab" onclick="setPricingCorporate()" style="padding:12px 36px;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:#f0ebe2;color:#9a8a6a;">Corporate Learning</button>
       </div>
     </div>
 
-    <!-- ── UNIVERSITY PRICING ── -->
+    <!-- ── FACULTY & UNIVERSITY ── -->
     <div id="pricing-uni">
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:#e8e2d8;margin-bottom:28px;">
 
-        <!-- Tier 1: Single Sim -->
+        <!-- Pilot -->
         <div style="background:#f7f4f0;padding:48px 40px;display:flex;flex-direction:column;">
-          <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#9a8a6a;margin-bottom:20px;">Single Simulation</div>
-          <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:6px;">
-            <span style="font-family:'Playfair Display',serif;font-size:19px;font-weight:400;color:#9a8a6a;">Starting from</span>
-          </div>
-          <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:6px;">
-            <span style="font-family:'Playfair Display',serif;font-size:44px;font-weight:700;color:#0d1f3c;line-height:1;">$1,500</span>
-          </div>
-          <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;color:#9a8a6a;margin-bottom:32px;">per cohort · up to 30 students</div>
+          <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#9a8a6a;margin-bottom:16px;">Pilot</div>
+          <div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#0d1f3c;line-height:1.25;margin-bottom:14px;">Start with one simulation and one cohort.</div>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:18px;color:#5a6070;line-height:1.6;font-weight:300;margin-bottom:28px;">A practical way for faculty to experience Stratagem in a real classroom before committing to a broader program.</p>
           <div style="height:1px;background:#e0d8cc;margin-bottom:28px;"></div>
           <div style="display:flex;flex-direction:column;gap:13px;flex:1;">
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <div style="width:16px;height:16px;background:#c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:white;font-size:19px;font-weight:700;">✓</span></div>
-              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">1 simulation of your choice</span>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">One simulation of your choice</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <div style="width:16px;height:16px;background:#c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:white;font-size:19px;font-weight:700;">✓</span></div>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">One complete cohort</span>
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <div style="width:16px;height:16px;background:#c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:white;font-size:19px;font-weight:700;">✓</span></div>
@@ -1148,217 +1158,264 @@
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <div style="width:16px;height:16px;background:#c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:white;font-size:19px;font-weight:700;">✓</span></div>
-              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">AI debrief per student</span>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">AI-generated learner debriefs</span>
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <div style="width:16px;height:16px;background:#c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:white;font-size:19px;font-weight:700;">✓</span></div>
-              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Email support</span>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Faculty onboarding</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <div style="width:16px;height:16px;background:#c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:white;font-size:19px;font-weight:700;">✓</span></div>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Browser-based deployment</span>
             </div>
           </div>
-          <a href="#demo" onclick="gtag('event','cta_click',{location:'pricing'})" style="display:block;text-align:center;border:1px solid #0d1f3c;color:#0d1f3c;padding:13px 24px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:36px;">Get a Quote</a>
+          <a href="#demo" onclick="gtag('event','cta_click',{location:'pricing'})" style="display:block;text-align:center;border:1px solid #0d1f3c;color:#0d1f3c;padding:13px 24px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:36px;">Request a Pilot →</a>
         </div>
 
-        <!-- Tier 2: Platform — Recommended -->
+        <!-- Program -->
         <div style="background:#0d1f3c;padding:48px 40px;display:flex;flex-direction:column;position:relative;">
-          <div style="position:absolute;top:0;left:0;right:0;background:#c47b1a;padding:7px;text-align:center;">
-            <span style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:white;">Most Popular</span>
-          </div>
-          <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(243,237,227,0.45);margin-bottom:20px;margin-top:28px;">Platform Access</div>
-          <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:6px;">
-            <span style="font-family:'Playfair Display',serif;font-size:19px;font-weight:400;color:rgba(243,237,227,0.45);">Starting from</span>
-          </div>
-          <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:6px;">
-            <span style="font-family:'Playfair Display',serif;font-size:44px;font-weight:700;color:#f3ede3;line-height:1;">$4,500</span>
-          </div>
-          <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;color:rgba(243,237,227,0.45);margin-bottom:32px;">per semester · up to 60 students</div>
+          <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(243,237,227,0.45);margin-bottom:16px;">Program</div>
+          <div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#f3ede3;line-height:1.25;margin-bottom:14px;">For recurring use within a course or academic program.</div>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:18px;color:rgba(243,237,227,0.6);line-height:1.6;font-weight:300;margin-bottom:28px;">Designed for faculty who want Stratagem to become part of their regular curriculum.</p>
           <div style="height:1px;background:rgba(255,255,255,0.1);margin-bottom:28px;"></div>
           <div style="display:flex;flex-direction:column;gap:13px;flex:1;">
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <div style="width:16px;height:16px;border:1px solid #c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:#c47b1a;font-size:19px;font-weight:700;">✓</span></div>
-              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.7);line-height:1.5;">All 4 simulations</span>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.7);line-height:1.5;">Multiple cohort runs</span>
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <div style="width:16px;height:16px;border:1px solid #c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:#c47b1a;font-size:19px;font-weight:700;">✓</span></div>
-              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.7);line-height:1.5;">Unlimited cohort runs</span>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.7);line-height:1.5;">Access to selected simulations</span>
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <div style="width:16px;height:16px;border:1px solid #c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:#c47b1a;font-size:19px;font-weight:700;">✓</span></div>
-              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.7);line-height:1.5;">Full faculty analytics dashboard</span>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.7);line-height:1.5;">Faculty analytics dashboard</span>
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <div style="width:16px;height:16px;border:1px solid #c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:#c47b1a;font-size:19px;font-weight:700;">✓</span></div>
-              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.7);line-height:1.5;">AI debrief + cohort comparison</span>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.7);line-height:1.5;">AI learner debriefs</span>
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <div style="width:16px;height:16px;border:1px solid #c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:#c47b1a;font-size:19px;font-weight:700;">✓</span></div>
-              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.7);line-height:1.5;">Onboarding support included</span>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.7);line-height:1.5;">Cohort-level insights</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <div style="width:16px;height:16px;border:1px solid #c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:#c47b1a;font-size:19px;font-weight:700;">✓</span></div>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.7);line-height:1.5;">Faculty onboarding and support</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <div style="width:16px;height:16px;border:1px solid #c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:#c47b1a;font-size:19px;font-weight:700;">✓</span></div>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.7);line-height:1.5;">Curriculum integration guidance</span>
             </div>
           </div>
-          <a href="#demo" onclick="gtag('event','cta_click',{location:'pricing'})" style="display:block;text-align:center;background:#c47b1a;color:white;padding:13px 24px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:36px;">Get a Quote</a>
+          <a href="#demo" onclick="gtag('event','cta_click',{location:'pricing'})" style="display:block;text-align:center;background:#c47b1a;color:white;padding:13px 24px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:36px;">Discuss Your Program →</a>
         </div>
 
-        <!-- Tier 3: Annual -->
+        <!-- Institutional -->
         <div style="background:#f7f4f0;padding:48px 40px;display:flex;flex-direction:column;">
-          <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#9a8a6a;margin-bottom:20px;">Annual License</div>
-          <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:6px;">
-            <span style="font-family:'Playfair Display',serif;font-size:19px;font-weight:400;color:#9a8a6a;">Starting from</span>
-          </div>
-          <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:6px;">
-            <span style="font-family:'Playfair Display',serif;font-size:44px;font-weight:700;color:#0d1f3c;line-height:1;">$9,000</span>
-          </div>
-          <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;color:#9a8a6a;margin-bottom:32px;">per year · unlimited students</div>
+          <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#9a8a6a;margin-bottom:16px;">Institutional</div>
+          <div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#0d1f3c;line-height:1.25;margin-bottom:14px;">For universities and business schools scaling simulation-based learning.</div>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:18px;color:#5a6070;line-height:1.6;font-weight:300;margin-bottom:28px;">Extend Stratagem across courses, faculty, and programs.</p>
           <div style="height:1px;background:#e0d8cc;margin-bottom:28px;"></div>
           <div style="display:flex;flex-direction:column;gap:13px;flex:1;">
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <div style="width:16px;height:16px;background:#c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:white;font-size:19px;font-weight:700;">✓</span></div>
-              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Everything in Platform Access</span>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Multiple simulations</span>
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <div style="width:16px;height:16px;background:#c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:white;font-size:19px;font-weight:700;">✓</span></div>
-              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Unlimited students, all year</span>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Multiple courses and cohorts</span>
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <div style="width:16px;height:16px;background:#c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:white;font-size:19px;font-weight:700;">✓</span></div>
-              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Priority support &amp; onboarding</span>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Multi-faculty access</span>
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <div style="width:16px;height:16px;background:#c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:white;font-size:19px;font-weight:700;">✓</span></div>
-              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Roadmap input &amp; early access</span>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Institution-level analytics</span>
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <div style="width:16px;height:16px;background:#c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:white;font-size:19px;font-weight:700;">✓</span></div>
-              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Multi-program support</span>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Cross-cohort comparison</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <div style="width:16px;height:16px;background:#c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:white;font-size:19px;font-weight:700;">✓</span></div>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Advanced reporting</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <div style="width:16px;height:16px;background:#c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:white;font-size:19px;font-weight:700;">✓</span></div>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Priority support</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <div style="width:16px;height:16px;background:#c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:white;font-size:19px;font-weight:700;">✓</span></div>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Early access to new simulations and capabilities</span>
             </div>
           </div>
-          <a href="#demo" onclick="gtag('event','cta_click',{location:'pricing'})" style="display:block;text-align:center;border:1px solid #0d1f3c;color:#0d1f3c;padding:13px 24px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:36px;">Get a Quote</a>
+          <a href="#demo" onclick="gtag('event','cta_click',{location:'pricing'})" style="display:block;text-align:center;border:1px solid #0d1f3c;color:#0d1f3c;padding:13px 24px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:36px;">Talk to Us →</a>
         </div>
 
       </div>
     </div>
 
-    <!-- ── CORPORATE PRICING ── -->
+    <!-- ── CORPORATE LEARNING & EXECUTIVE DEVELOPMENT ── -->
     <div id="pricing-corp" style="display:none">
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:#e8e2d8;margin-bottom:28px;">
 
-        <!-- Tier 1: Single Workshop -->
+        <!-- Executive Workshop -->
         <div style="background:#f7f4f0;padding:48px 40px;display:flex;flex-direction:column;">
-          <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#9a8a6a;margin-bottom:20px;">Single Workshop</div>
-          <div style="font-family:'Playfair Display',serif;font-size:19px;font-weight:400;color:#9a8a6a;margin-bottom:6px;">Starting from</div>
-          <div style="font-family:'Playfair Display',serif;font-size:44px;font-weight:700;color:#0d1f3c;line-height:1;margin-bottom:6px;">$2,500</div>
-          <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;color:#9a8a6a;margin-bottom:32px;">per cohort · up to 20 executives</div>
+          <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#9a8a6a;margin-bottom:16px;">Executive Workshop</div>
+          <div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#0d1f3c;line-height:1.25;margin-bottom:14px;">Put leaders inside the decision before it becomes real.</div>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:18px;color:#5a6070;line-height:1.6;font-weight:300;margin-bottom:28px;">Deploy a simulation as part of an executive workshop, leadership program, or strategy offsite.</p>
           <div style="height:1px;background:#e0d8cc;margin-bottom:28px;"></div>
           <div style="display:flex;flex-direction:column;gap:13px;flex:1;">
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <div style="width:16px;height:16px;background:#c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:white;font-size:19px;font-weight:700;">✓</span></div>
-              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">1 simulation of your choice</span>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">One simulation</span>
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <div style="width:16px;height:16px;background:#c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:white;font-size:19px;font-weight:700;">✓</span></div>
-              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Team analytics dashboard</span>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">One executive cohort</span>
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <div style="width:16px;height:16px;background:#c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:white;font-size:19px;font-weight:700;">✓</span></div>
-              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">AI debrief per participant</span>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Team analytics</span>
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <div style="width:16px;height:16px;background:#c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:white;font-size:19px;font-weight:700;">✓</span></div>
-              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Self-learning or instructor-led</span>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">AI-generated participant debriefs</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <div style="width:16px;height:16px;background:#c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:white;font-size:19px;font-weight:700;">✓</span></div>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Self-learning or instructor-led delivery</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <div style="width:16px;height:16px;background:#c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:white;font-size:19px;font-weight:700;">✓</span></div>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Facilitator support</span>
             </div>
           </div>
-          <a href="#demo" onclick="gtag('event','cta_click',{location:'pricing'})" style="display:block;text-align:center;border:1px solid #0d1f3c;color:#0d1f3c;padding:13px 24px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:36px;">Get a Quote</a>
+          <a href="#demo" onclick="gtag('event','cta_click',{location:'pricing'})" style="display:block;text-align:center;border:1px solid #0d1f3c;color:#0d1f3c;padding:13px 24px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:36px;">Plan a Workshop →</a>
         </div>
 
-        <!-- Tier 2: Quarterly — Recommended -->
+        <!-- Leadership Program -->
         <div style="background:#0d1f3c;padding:48px 40px;display:flex;flex-direction:column;position:relative;">
-          <div style="position:absolute;top:0;left:0;right:0;background:#c47b1a;padding:7px;text-align:center;">
-            <span style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:white;">Most Popular</span>
-          </div>
-          <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(243,237,227,0.45);margin-bottom:20px;margin-top:28px;">Quarterly Program</div>
-          <div style="font-family:'Playfair Display',serif;font-size:19px;font-weight:400;color:rgba(243,237,227,0.45);margin-bottom:6px;">Starting from</div>
-          <div style="font-family:'Playfair Display',serif;font-size:44px;font-weight:700;color:#f3ede3;line-height:1;margin-bottom:6px;">$8,000</div>
-          <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;color:rgba(243,237,227,0.45);margin-bottom:32px;">per year · up to 30 executives per run</div>
+          <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(243,237,227,0.45);margin-bottom:16px;">Leadership Program</div>
+          <div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#f3ede3;line-height:1.25;margin-bottom:14px;">Build judgment across multiple leadership experiences.</div>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:18px;color:rgba(243,237,227,0.6);line-height:1.6;font-weight:300;margin-bottom:28px;">For organizations running recurring leadership, strategy, or executive development programs.</p>
           <div style="height:1px;background:rgba(255,255,255,0.1);margin-bottom:28px;"></div>
           <div style="display:flex;flex-direction:column;gap:13px;flex:1;">
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <div style="width:16px;height:16px;border:1px solid #c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:#c47b1a;font-size:19px;font-weight:700;">✓</span></div>
-              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.7);line-height:1.5;">1 simulation, quarterly use</span>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.7);line-height:1.5;">Recurring cohort access</span>
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <div style="width:16px;height:16px;border:1px solid #c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:#c47b1a;font-size:19px;font-weight:700;">✓</span></div>
-              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.7);line-height:1.5;">Behavioral benchmarking across cohorts</span>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.7);line-height:1.5;">Simulation-based learning experiences</span>
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <div style="width:16px;height:16px;border:1px solid #c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:#c47b1a;font-size:19px;font-weight:700;">✓</span></div>
-              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.7);line-height:1.5;">Instructor-led + self-learning modes</span>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.7);line-height:1.5;">Behavioral benchmarking</span>
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <div style="width:16px;height:16px;border:1px solid #c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:#c47b1a;font-size:19px;font-weight:700;">✓</span></div>
-              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.7);line-height:1.5;">Dedicated onboarding session</span>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.7);line-height:1.5;">Cohort comparison</span>
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <div style="width:16px;height:16px;border:1px solid #c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:#c47b1a;font-size:19px;font-weight:700;">✓</span></div>
-              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.7);line-height:1.5;">AI debrief + manager summary</span>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.7);line-height:1.5;">Instructor-led and self-learning modes</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <div style="width:16px;height:16px;border:1px solid #c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:#c47b1a;font-size:19px;font-weight:700;">✓</span></div>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.7);line-height:1.5;">Manager and facilitator insights</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <div style="width:16px;height:16px;border:1px solid #c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:#c47b1a;font-size:19px;font-weight:700;">✓</span></div>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.7);line-height:1.5;">Dedicated onboarding</span>
             </div>
           </div>
-          <a href="#demo" onclick="gtag('event','cta_click',{location:'pricing'})" style="display:block;text-align:center;background:#c47b1a;color:white;padding:13px 24px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:36px;">Get a Quote</a>
+          <a href="#demo" onclick="gtag('event','cta_click',{location:'pricing'})" style="display:block;text-align:center;background:#c47b1a;color:white;padding:13px 24px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:36px;">Discuss Your Program →</a>
         </div>
 
-        <!-- Tier 3: Enterprise -->
+        <!-- Enterprise -->
         <div style="background:#f7f4f0;padding:48px 40px;display:flex;flex-direction:column;">
-          <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#9a8a6a;margin-bottom:20px;">Enterprise</div>
-          <div style="font-family:'Playfair Display',serif;font-size:19px;font-weight:400;color:#9a8a6a;margin-bottom:6px;">Custom pricing</div>
-          <div style="font-family:'Playfair Display',serif;font-size:44px;font-weight:700;color:#0d1f3c;line-height:1;margin-bottom:6px;">Custom</div>
-          <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;color:#9a8a6a;margin-bottom:32px;">unlimited participants &amp; cohorts</div>
+          <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#9a8a6a;margin-bottom:16px;">Enterprise</div>
+          <div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#0d1f3c;line-height:1.25;margin-bottom:14px;">A simulation environment built around your leadership strategy.</div>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:18px;color:#5a6070;line-height:1.6;font-weight:300;margin-bottom:28px;">For organizations deploying Stratagem across multiple leadership populations, business units, or development programs.</p>
           <div style="height:1px;background:#e0d8cc;margin-bottom:28px;"></div>
           <div style="display:flex;flex-direction:column;gap:13px;flex:1;">
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <div style="width:16px;height:16px;background:#c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:white;font-size:19px;font-weight:700;">✓</span></div>
-              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">All 4 simulations</span>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Organization-wide deployment</span>
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <div style="width:16px;height:16px;background:#c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:white;font-size:19px;font-weight:700;">✓</span></div>
-              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Unlimited participants &amp; cohorts</span>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Multiple simulations and cohorts</span>
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <div style="width:16px;height:16px;background:#c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:white;font-size:19px;font-weight:700;">✓</span></div>
-              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Custom analytics &amp; reporting</span>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Custom analytics and reporting</span>
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <div style="width:16px;height:16px;background:#c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:white;font-size:19px;font-weight:700;">✓</span></div>
-              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Dedicated account manager</span>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Leadership benchmarking</span>
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <div style="width:16px;height:16px;background:#c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:white;font-size:19px;font-weight:700;">✓</span></div>
-              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">SSO &amp; enterprise security</span>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Enterprise security and SSO options</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <div style="width:16px;height:16px;background:#c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:white;font-size:19px;font-weight:700;">✓</span></div>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Dedicated support</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <div style="width:16px;height:16px;background:#c47b1a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><span style="color:white;font-size:19px;font-weight:700;">✓</span></div>
+              <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#5a6070;line-height:1.5;">Custom program configuration</span>
             </div>
           </div>
-          <a href="#demo" onclick="gtag('event','cta_click',{location:'pricing'})" style="display:block;text-align:center;border:1px solid #0d1f3c;color:#0d1f3c;padding:13px 24px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:36px;">Talk to Us</a>
+          <a href="#demo" onclick="gtag('event','cta_click',{location:'pricing'})" style="display:block;text-align:center;border:1px solid #0d1f3c;color:#0d1f3c;padding:13px 24px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:36px;">Talk to Us →</a>
         </div>
 
       </div>
     </div>
 
-    <!-- Founding Partner callout -->
-    <div style="background:#060e1e;padding:32px 40px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;">
-      <div style="display:flex;align-items:center;gap:20px;">
-        <div style="width:44px;height:44px;background:rgba(196,123,26,0.15);border:1px solid rgba(196,123,26,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-          <span style="font-family:'Playfair Display',serif;font-size:18px;color:#c47b1a;">✦</span>
+    <!-- Pricing factors -->
+    <div data-block="factors" style="background:#f7f4f0;padding:56px 48px;margin-top:8px;">
+      <h3 style="font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:#0d1f3c;letter-spacing:-0.01em;line-height:1.15;margin-bottom:12px;">What determines your pricing?</h3>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:18px;line-height:1.7;color:#5a6070;font-weight:300;margin-bottom:36px;">We tailor every engagement based on:</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:2px;background:#e8e2d8;">
+        <div style="background:white;padding:28px 26px;">
+          <div style="font-family:'Source Sans 3',sans-serif;font-size:19px;font-weight:700;color:#0d1f3c;margin-bottom:7px;">Cohort size</div>
+          <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;color:#5a6070;line-height:1.55;font-weight:300;">How many learners participate in each program.</div>
         </div>
-        <div>
-          <div style="font-family:'Source Sans 3',sans-serif;font-size:19px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#c47b1a;margin-bottom:5px;">Founding Partner Offer</div>
-          <div style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#f3ede3;font-weight:400;">50% off any tier, locked forever. 3 of 5 slots remaining.</div>
+        <div style="background:white;padding:28px 26px;">
+          <div style="font-family:'Source Sans 3',sans-serif;font-size:19px;font-weight:700;color:#0d1f3c;margin-bottom:7px;">Program scope</div>
+          <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;color:#5a6070;line-height:1.55;font-weight:300;">Single course, recurring program, or institution-wide deployment.</div>
+        </div>
+        <div style="background:white;padding:28px 26px;">
+          <div style="font-family:'Source Sans 3',sans-serif;font-size:19px;font-weight:700;color:#0d1f3c;margin-bottom:7px;">Simulation selection</div>
+          <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;color:#5a6070;line-height:1.55;font-weight:300;">Choose the simulations most relevant to your learning objectives.</div>
+        </div>
+        <div style="background:white;padding:28px 26px;">
+          <div style="font-family:'Source Sans 3',sans-serif;font-size:19px;font-weight:700;color:#0d1f3c;margin-bottom:7px;">Delivery model</div>
+          <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;color:#5a6070;line-height:1.55;font-weight:300;">Self-directed, faculty-led, facilitated, or blended.</div>
+        </div>
+        <div style="background:white;padding:28px 26px;">
+          <div style="font-family:'Source Sans 3',sans-serif;font-size:19px;font-weight:700;color:#0d1f3c;margin-bottom:7px;">Usage requirements</div>
+          <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;color:#5a6070;line-height:1.55;font-weight:300;">Single cohort, recurring cohorts, or multi-program deployment.</div>
         </div>
       </div>
-      <a href="#founding" style="background:#c47b1a;color:white;padding:13px 32px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;white-space:nowrap;flex-shrink:0;">Apply for a Founding Slot →</a>
+      <div data-block="factors-cta" style="background:#0d1f3c;padding:28px 32px;margin-top:2px;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;">
+        <div style="font-family:'Playfair Display',serif;font-size:21px;font-weight:400;color:#f3ede3;line-height:1.4;max-width:600px;">Tell us what you're trying to achieve, and we'll recommend the right deployment model.</div>
+        <a href="#demo" onclick="gtag('event','cta_click',{location:'pricing'})" style="background:#c47b1a;color:white;padding:13px 32px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;white-space:nowrap;flex-shrink:0;">Request a Pricing Conversation →</a>
+      </div>
     </div>
 
     <!-- Footer note -->
-    <p style="font-family:'Source Sans 3',sans-serif;font-size:18px;color:#b0a898;text-align:center;margin-top:24px;line-height:1.7;">All prices are indicative. Final pricing is confirmed during your demo based on cohort size and program structure. All tiers include browser-based delivery with no IT setup required.</p>
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:18px;color:#b0a898;text-align:center;margin-top:24px;line-height:1.7;">Pricing is customized based on program requirements. Final terms are confirmed after a short conversation about your cohort, simulations, and delivery model. Every deployment is browser-based with no IT setup required.</p>
 
   </div>
 </section>
 
-<!-- ── FOUNDING PARTNER ──────────────────────────────────── -->
+<!-- ── FOUNDING INSTITUTION PROGRAM ──────────────────────── -->
 <section id="founding" style="background:#060e1e;padding:96px 64px;border-top:1px solid rgba(255,255,255,0.05);">
   <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:start;">
 
@@ -1366,10 +1423,11 @@
     <div>
       <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(196,123,26,0.12);border:1px solid rgba(196,123,26,0.25);padding:5px 16px;margin-bottom:36px;">
         <div style="width:5px;height:5px;border-radius:50%;background:#c47b1a;flex-shrink:0;animation:pulse 2s infinite;"></div>
-        <span style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#c47b1a;">Founding Partner Program · Now Open</span>
+        <span style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#c47b1a;">Founding Institution Program</span>
       </div>
-      <h2 style="font-family:'Playfair Display',serif;font-size:46px;font-weight:700;color:#f3ede3;letter-spacing:-0.02em;line-height:1.08;margin-bottom:22px;">We're building Stratagem <em style="color:#c47b1a;">with</em> institutions — not just for them.</h2>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:18px;line-height:1.75;color:rgba(243,237,227,0.52);max-width:460px;font-weight:300;margin-bottom:52px;">A small group of forward-thinking universities and L&D teams will help shape the platform and lock in a relationship that puts them permanently ahead of the field.</p>
+      <h2 style="font-family:'Playfair Display',serif;font-size:46px;font-weight:700;color:#f3ede3;letter-spacing:-0.02em;line-height:1.08;margin-bottom:22px;">Help shape the future of experiential business education.</h2>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:18px;line-height:1.75;color:rgba(243,237,227,0.52);max-width:480px;font-weight:300;margin-bottom:18px;">We're working with a limited number of universities, business schools, and corporate learning teams to bring Stratagem into real learning environments.</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:18px;line-height:1.75;color:rgba(243,237,227,0.52);max-width:480px;font-weight:300;margin-bottom:52px;">Founding partners work directly with the Stratagem team to test simulations, provide feedback, and shape the platform around real curriculum and leadership-development needs.</p>
 
       <!-- Benefits list -->
       <div style="display:flex;flex-direction:column;gap:0;">
@@ -1379,8 +1437,8 @@
             <span style="font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#c47b1a;">1</span>
           </div>
           <div>
-            <div style="font-family:'Source Sans 3',sans-serif;font-size:19px;font-weight:600;color:#f3ede3;margin-bottom:5px;">Free pilot: one simulation, your full cohort</div>
-            <div style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.38);line-height:1.65;">Run any simulation with your cohort at zero cost. See the debrief reports. Then decide if Stratagem belongs in your curriculum.</div>
+            <div style="font-family:'Source Sans 3',sans-serif;font-size:19px;font-weight:600;color:#f3ede3;margin-bottom:5px;">Pilot access</div>
+            <div style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.38);line-height:1.65;">Experience Stratagem with a real cohort before making a broader commitment.</div>
           </div>
         </div>
 
@@ -1389,8 +1447,8 @@
             <span style="font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#c47b1a;">2</span>
           </div>
           <div>
-            <div style="font-family:'Source Sans 3',sans-serif;font-size:19px;font-weight:600;color:#f3ede3;margin-bottom:5px;">Locked pricing forever</div>
-            <div style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.38);line-height:1.65;">Founding partners never pay more than the founding rate — regardless of how the platform scales or evolves.</div>
+            <div style="font-family:'Source Sans 3',sans-serif;font-size:19px;font-weight:600;color:#f3ede3;margin-bottom:5px;">Preferential founding terms</div>
+            <div style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.38);line-height:1.65;">Early partners receive preferred commercial terms as the platform evolves.</div>
           </div>
         </div>
 
@@ -1399,8 +1457,8 @@
             <span style="font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#c47b1a;">3</span>
           </div>
           <div>
-            <div style="font-family:'Source Sans 3',sans-serif;font-size:19px;font-weight:600;color:#f3ede3;margin-bottom:5px;">Direct roadmap input</div>
-            <div style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.38);line-height:1.65;">Quarterly calls with the founding team. Your curriculum needs shape what simulations and features we build next.</div>
+            <div style="font-family:'Source Sans 3',sans-serif;font-size:19px;font-weight:600;color:#f3ede3;margin-bottom:5px;">Direct product feedback</div>
+            <div style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.38);line-height:1.65;">Share curriculum requirements and influence future simulations and capabilities.</div>
           </div>
         </div>
 
@@ -1409,8 +1467,8 @@
             <span style="font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#c47b1a;">4</span>
           </div>
           <div>
-            <div style="font-family:'Source Sans 3',sans-serif;font-size:19px;font-weight:600;color:#f3ede3;margin-bottom:5px;">Named on the platform at launch</div>
-            <div style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,226,0.38);line-height:1.65;">Founding institutions are permanently credited on Stratagem — visible to every learner who enters a simulation.</div>
+            <div style="font-family:'Source Sans 3',sans-serif;font-size:19px;font-weight:600;color:#f3ede3;margin-bottom:5px;">Priority onboarding</div>
+            <div style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.38);line-height:1.65;">Work directly with the Stratagem team to prepare your first cohort.</div>
           </div>
         </div>
 
@@ -1419,72 +1477,26 @@
             <span style="font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#c47b1a;">5</span>
           </div>
           <div>
-            <div style="font-family:'Source Sans 3',sans-serif;font-size:19px;font-weight:600;color:#f3ede3;margin-bottom:5px;">Priority onboarding &amp; dedicated support</div>
-            <div style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.38);line-height:1.65;">Your first cohort runs with the founding team alongside you — not a support ticket queue.</div>
+            <div style="font-family:'Source Sans 3',sans-serif;font-size:19px;font-weight:600;color:#f3ede3;margin-bottom:5px;">Early access</div>
+            <div style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.38);line-height:1.65;">Get access to selected new simulations and platform capabilities as they become available.</div>
           </div>
         </div>
 
       </div>
     </div>
 
-    <!-- RIGHT: Slots card + CTA -->
+    <!-- RIGHT: Apply card -->
     <div style="position:sticky;top:96px;">
 
-      <!-- Slot tracker -->
-      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);padding:36px;margin-bottom:2px;">
-        <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
-          <div style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(243,237,227,0.3);">Founding Slots — 2025–26</div>
-          <div style="display:flex;align-items:baseline;gap:6px;">
-            <span style="font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:#f3ede3;">3</span>
-            <span style="font-family:'Source Sans 3',sans-serif;font-size:18px;color:rgba(243,237,227,0.4);">of 5 remaining</span>
-          </div>
-        </div>
-
-        <!-- Progress bar -->
-        <div style="height:3px;background:rgba(255,255,255,0.07);margin-bottom:28px;border-radius:2px;">
-          <div style="height:3px;width:40%;background:#c47b1a;border-radius:2px;"></div>
-        </div>
-
-        <div style="display:flex;flex-direction:column;gap:10px;">
-          <div style="display:flex;align-items:center;gap:14px;">
-            <div style="width:30px;height:30px;background:#c47b1a;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <span style="color:white;font-size:18px;font-weight:700;">✓</span>
-            </div>
-            <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.3);text-decoration:line-through;">Slot 01 — Reserved</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:14px;">
-            <div style="width:30px;height:30px;background:#c47b1a;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <span style="color:white;font-size:18px;font-weight:700;">✓</span>
-            </div>
-            <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.3);text-decoration:line-through;">Slot 02 — Reserved</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:14px;">
-            <div style="width:30px;height:30px;border:2px solid rgba(196,123,26,0.5);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <span style="font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#c47b1a;">03</span>
-            </div>
-            <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:#f3ede3;font-weight:500;">Slot 03 — Open</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:14px;">
-            <div style="width:30px;height:30px;border:2px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <span style="font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:rgba(243,237,227,0.3);">04</span>
-            </div>
-            <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.45);">Slot 04 — Open</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:14px;">
-            <div style="width:30px;height:30px;border:2px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <span style="font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:rgba(243,237,227,0.3);">05</span>
-            </div>
-            <span style="font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(243,237,227,0.45);">Slot 05 — Open</span>
-          </div>
-        </div>
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(196,123,26,0.12);border:1px solid rgba(196,123,26,0.25);padding:6px 16px;margin-bottom:18px;">
+        <span style="font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#c47b1a;">Limited founding partnerships available</span>
       </div>
 
       <!-- CTA card -->
       <div style="background:#c47b1a;padding:36px;">
-        <div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:white;line-height:1.2;margin-bottom:12px;">Express interest in under 2 minutes.</div>
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:19px;line-height:1.65;color:rgba(255,255,255,0.72);margin-bottom:28px;">No commitment. We'll reach out within 48 hours to understand your program and see if there's a fit.</p>
-        <a href="#demo" onclick="gtag('event','cta_click',{location:'founding'})" style="display:block;text-align:center;background:white;color:#c47b1a;padding:15px 24px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">Apply for a Founding Slot →</a>
-        <div style="text-align:center;margin-top:14px;font-family:'Source Sans 3',sans-serif;font-size:19px;color:rgba(255,255,255,0.45);letter-spacing:0.04em;">No commitment · Response within 48 hours</div>
+        <div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:white;line-height:1.2;margin-bottom:12px;">Apply for the Founding Institution Program</div>
+        <p style="font-family:'Source Sans 3',sans-serif;font-size:19px;line-height:1.65;color:rgba(255,255,255,0.72);margin-bottom:28px;">No commitment. We'll first understand your program, cohort, and learning objectives to determine whether Stratagem is a good fit.</p>
+        <a href="#demo" onclick="gtag('event','cta_click',{location:'founding'})" style="display:block;text-align:center;background:white;color:#c47b1a;padding:15px 24px;font-family:'Source Sans 3',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">Apply for the Founding Institution Program →</a>
       </div>
 
       <!-- Footnote -->
@@ -1492,7 +1504,7 @@
         <div style="width:16px;height:16px;border:1px solid rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
           <span style="font-size:19px;color:rgba(243,237,227,0.4);">i</span>
         </div>
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:18px;line-height:1.6;color:rgba(243,237,227,0.3);">Founding partner status is available to universities, business schools, and corporate L&amp;D teams. Slots are limited and reviewed on a first-come basis.</p>
+        <p style="font-family:'Source Sans 3',sans-serif;font-size:18px;line-height:1.6;color:rgba(243,237,227,0.3);">The Founding Institution Program is open to universities, business schools, and corporate learning teams. Partnerships are limited and reviewed on a rolling basis.</p>
       </div>
 
     </div>
