@@ -1,2 +1,4 @@
 .deploy.json
 *.bak-*
+.env
+api/node_modules/

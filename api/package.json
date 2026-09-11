@@ -1,0 +1,18 @@
+{
+  "name": "stratagem-contact-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Minimal API that stores stratagemengine.com demo-form submissions in Postgres.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "pg": "^8.13.3"
+  }
+}
